@@ -1,5 +1,36 @@
 import { useState } from 'react';
-import projectsData from '../data/projects.json';
+
+const projectsData = {
+  projects: [
+    {
+      id: 1,
+      title: "Analyse COVID-19",
+      type: "PDF",
+      description: "Analyse statistique des données de propagation du COVID-19 en Afrique de l'Ouest",
+      file: "/projects/covid-report.pdf",
+      image: "/projects/covid-thumb.jpg",
+      date: "2024-01"
+    },
+    {
+      id: 2,
+      title: "Dashboard Ventes",
+      type: "Power BI",
+      description: "Tableau de bord interactif pour le suivi des ventes trimestrielles",
+      file: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      image: "/projects/dashboard-thumb.jpg",
+      date: "2024-03"
+    },
+    {
+      id: 3,
+      title: "Site E-commerce",
+      type: "Site Web",
+      description: "Prototype de site e-commerce avec panier et paiement",
+      file: "https://example.com",
+      image: "/projects/ecommerce-thumb.jpg",
+      date: "2024-06"
+    }
+  ]
+};
 
 export default function Home() {
   const [projects] = useState(projectsData.projects);
@@ -10,50 +41,50 @@ export default function Home() {
     : projects.filter(p => p.type === filter);
 
   return (
-    
-      
-        Mon Portfolio
-        Projets académiques et professionnels
-      
+    <div style={styles.container}>
+      <header style={styles.header}>
+        <h1>Mon Portfolio</h1>
+        <p>Projets académiques et professionnels</p>
+      </header>
 
-      
+      <div style={styles.filters}>
         <button onClick={() => setFilter('all')} style={filter === 'all' ? styles.activeBtn : styles.btn}>
           Tous
-        
+        </button>
         <button onClick={() => setFilter('PDF')} style={filter === 'PDF' ? styles.activeBtn : styles.btn}>
           Rapports
-        
+        </button>
         <button onClick={() => setFilter('Power BI')} style={filter === 'Power BI' ? styles.activeBtn : styles.btn}>
           Dashboards
-        
+        </button>
         <button onClick={() => setFilter('Site Web')} style={filter === 'Site Web' ? styles.activeBtn : styles.btn}>
           Sites Web
-        
-      
+        </button>
+      </div>
 
-      
+      <div style={styles.grid}>
         {filteredProjects.map(project => (
-          
-            
-              
-            
-            
-              {project.type}
-              {project.title}
-              {project.description}
-              {project.date}
-              
+          <div key={project.id} style={styles.card}>
+            <div style={styles.cardImage}>
+              <img src={project.image} alt={project.title} style={styles.img} />
+            </div>
+            <div style={styles.cardContent}>
+              <span style={styles.badge}>{project.type}</span>
+              <h3 style={styles.cardTitle}>{project.title}</h3>
+              <p style={styles.cardDesc}>{project.description}</p>
+              <p style={styles.date}>{project.date}</p>
+              <a href={project.file} target="_blank" rel="noopener noreferrer" style={styles.link}>
                 Voir le projet →
-              
-            
-          
+              </a>
+            </div>
+          </div>
         ))}
-      
+      </div>
 
-      
-        © 2025 - Tous droits réservés
-      
-    
+      <footer style={styles.footer}>
+        <p>© 2025 - Tous droits réservés</p>
+      </footer>
+    </div>
   );
 }
 
