@@ -1,0 +1,31 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Analyse COVID-19",
+      "type": "PDF",
+      "description": "Analyse statistique des données de propagation du COVID-19 en Afrique de l'Ouest",
+      "file": "/projects/covid-report.pdf",
+      "image": "/projects/covid-thumb.jpg",
+      "date": "2024-01"
+    },
+    {
+      "id": 2,
+      "title": "Dashboard Ventes",
+      "type": "Power BI",
+      "description": "Tableau de bord interactif pour le suivi des ventes trimestrielles",
+      "file": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "image": "/projects/dashboard-thumb.jpg",
+      "date": "2024-03"
+    },
+    {
+      "id": 3,
+      "title": "Site E-commerce",
+      "type": "Site Web",
+      "description": "Prototype de site e-commerce avec panier et paiement",
+      "file": "https://example.com",
+      "image": "/projects/ecommerce-thumb.jpg",
+      "date": "2024-06"
+    }
+  ]
+}
